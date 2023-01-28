@@ -3,30 +3,27 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%atricle_tag}}`.
+ * Handles the creation of table `{{%article_tag}}`.
  */
-class m230116_221416_create_atricle_tag_table extends Migration
+class m230120_191048_create_article_tag_table extends Migration
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function up()
+    public function safeUp()
     {
-        $this->createTable('article_tag', [
+        $this->createTable('{{%article_tag}}', [
             'id' => $this->primaryKey(),
             'article_id'=>$this->integer(),
-            'tag_id'=>$this->integer()
+            'tag_id'=>$this->integer(),
         ]);
 
-        // creates index for column `user_id`
         $this->createIndex(
             'tag_article_article_id',
             'article_tag',
             'article_id'
         );
 
-
-        // add foreign key for table `user`
         $this->addForeignKey(
             'tag_article_article_id',
             'article_tag',
@@ -36,15 +33,12 @@ class m230116_221416_create_atricle_tag_table extends Migration
             'CASCADE'
         );
 
-        // creates index for column `user_id`
         $this->createIndex(
             'idx_tag_id',
             'article_tag',
             'tag_id'
         );
 
-
-        // add foreign key for table `user`
         $this->addForeignKey(
             'fk-tag_id',
             'article_tag',
@@ -56,10 +50,10 @@ class m230116_221416_create_atricle_tag_table extends Migration
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function down()
+    public function safeDown()
     {
-        $this->dropTable('article_tag');
+        $this->dropTable('{{%article_tag}}');
     }
 }

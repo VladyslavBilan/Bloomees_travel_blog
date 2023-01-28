@@ -2,10 +2,8 @@
 
 use yii\db\Migration;
 
-/**
- * Class m230116_221604_add_date_to_comment
- */
-class m230116_221604_add_date_to_comment extends Migration
+
+class m230120_190853_add_date_to_comment extends Migration
 {
     public function up()
     {

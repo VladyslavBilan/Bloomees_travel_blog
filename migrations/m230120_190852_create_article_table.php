@@ -5,14 +5,14 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%article}}`.
  */
-class m230116_221220_create_article_table extends Migration
+class m230120_190852_create_article_table extends Migration
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function up()
+    public function safeUp()
     {
-        $this->createTable('article', [
+        $this->createTable('{{%article}}', [
             'id' => $this->primaryKey(),
             'title'=>$this->string(),
             'description'=>$this->text(),
@@ -27,10 +27,10 @@ class m230116_221220_create_article_table extends Migration
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function down()
+    public function safeDown()
     {
-        $this->dropTable('article');
+        $this->dropTable('{{%article}}');
     }
 }

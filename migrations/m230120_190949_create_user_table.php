@@ -5,28 +5,28 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%user}}`.
  */
-class m230116_221317_create_user_table extends Migration
+class m230120_190949_create_user_table extends Migration
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function up()
+    public function safeUp()
     {
-        $this->createTable('user', [
+        $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
             'name'=>$this->string(),
             'email'=>$this->string()->defaultValue(null),
             'password'=>$this->string(),
             'isAdmin'=>$this->integer()->defaultValue(0),
-            'photo'=>$this->string()->defaultValue(null)
+            'photo'=>$this->string()->defaultValue(null),
         ]);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function down()
+    public function safeDown()
     {
-        $this->dropTable('user');
+        $this->dropTable('{{%user}}');
     }
 }
